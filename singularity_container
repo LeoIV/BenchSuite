@@ -19,6 +19,9 @@ Stage: build
     cd /bs
     git clone https://github.com/LeoIV/BenchSuite.git
     cd BenchSuite
+    cd data/svm
+    gzip -d CT_slice_*
+    cd ../..
     poetry env use python3.8
     poetry install
 

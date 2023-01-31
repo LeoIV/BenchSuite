@@ -1,4 +1,6 @@
+import gzip
 import os
+import tarfile
 import time
 from pathlib import Path
 
@@ -38,8 +40,16 @@ class SVM(Benchmark):
     def _load_data(self):
         then = time.time()
         data_folder = os.path.join(Path(__file__).parent.parent, "data", "svm")
-        X = np.load(os.path.join(data_folder, "CT_slice_X.npy"))
-        y = np.load(os.path.join(data_folder, "CT_slice_y.npy"))
+        try:
+            X = np.load(os.path.join(data_folder, "CT_slice_X.npy"))
+            y = np.load(os.path.join(data_folder, "CT_slice_y.npy"))
+        except:
+            fx = gzip.GzipFile(os.path.join(data_folder, "CT_slice_X.npy.gz"), "r")
+            fy = gzip.GzipFile(os.path.join(data_folder, "CT_slice_y.npy.gz"), "r")
+            X = np.load(fx)
+            y = np.load(fy)
+            fx.close()
+            fy.close()
         X = MinMaxScaler().fit_transform(X)
         y = MinMaxScaler().fit_transform(y.reshape(-1, 1)).squeeze()
         now = time.time()
