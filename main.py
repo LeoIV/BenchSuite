@@ -10,8 +10,8 @@ if __name__ == '__main__':
         prog='BenchSuite',
         description='Provides some benchmarks',
         epilog='Enjoy the program!')
-    parser.add_argument("--name", help="Name of the benchmark", type=str, default="lasso_dna")
-    parser.add_argument("--x", "-x", help="The point", type=float, nargs="+")
+    parser.add_argument("--name", help="Name of the benchmark", type=str, required=True)
+    parser.add_argument("--x", "-x", help="The point", type=float, nargs="+", required=True)
     args = parser.parse_args()
 
     if args.name == "lasso_dna":
@@ -22,4 +22,4 @@ if __name__ == '__main__':
     x = torch.tensor(args.x, dtype=settings.DTYPE, device=settings.DEVICE)
 
     y = bench(x)
-    print(y.detach().cpu().numpy().tolist())
+    print(y.detach().cpu().numpy().tolist()[0])
