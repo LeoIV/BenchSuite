@@ -2,8 +2,8 @@ import argparse
 
 import torch
 
-from benchsuite import settings
-from benchsuite.lasso_dna import LassoDNA
+from benchsuite import settings, SVM
+from benchsuite import LassoDNA, LassoSimple, LassoMedium, LassoHard, LassoHigh
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -16,6 +16,16 @@ if __name__ == '__main__':
 
     if args.name == "lasso_dna":
         bench = LassoDNA()
+    elif args.name == "lasso_simple":
+        bench = LassoSimple()
+    elif args.name == "lasso_medium":
+        bench = LassoMedium()
+    elif args.name == "lasso_hard":
+        bench = LassoHard()
+    elif args.name == "lasso_high":
+        bench = LassoHigh()
+    elif args.name == "svm":
+        bench = SVM()
     else:
         raise RuntimeError(f"Unknown benchmark {args.name}")
 
