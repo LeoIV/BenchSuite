@@ -4,6 +4,7 @@ import torch
 
 from benchsuite import settings, SVM
 from benchsuite import LassoDNA, LassoSimple, LassoMedium, LassoHard, LassoHigh
+from benchsuite.mopta08 import Mopta08
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -26,6 +27,8 @@ if __name__ == '__main__':
         bench = LassoHigh()
     elif args.name == "svm":
         bench = SVM()
+    elif args.name == "mopta08":
+        bench = Mopta08()
     else:
         raise RuntimeError(f"Unknown benchmark {args.name}")
 
