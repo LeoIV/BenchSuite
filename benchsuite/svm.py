@@ -26,7 +26,7 @@ class SVM(Benchmark):
         super().__init__(
             dim=dim,
             lb=torch.zeros(dim, device=settings.DEVICE, dtype=settings.DTYPE),
-            ub=torch.zeros(dim, device=settings.DEVICE, dtype=settings.DTYPE),
+            ub=torch.ones(dim, device=settings.DEVICE, dtype=settings.DTYPE),
         )
         self.X, self.y = self._load_data()
         np.random.seed(388)

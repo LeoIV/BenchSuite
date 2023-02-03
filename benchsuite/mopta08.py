@@ -18,7 +18,7 @@ class Mopta08(Benchmark):
         super().__init__(
             dim=dim,
             lb=torch.zeros(dim, device=settings.DEVICE, dtype=settings.DTYPE),
-            ub=torch.zeros(dim, device=settings.DEVICE, dtype=settings.DTYPE),
+            ub=torch.ones(dim, device=settings.DEVICE, dtype=settings.DTYPE),
         )
 
         self.sysarch = 64 if sys.maxsize > 2 ** 32 else 32
