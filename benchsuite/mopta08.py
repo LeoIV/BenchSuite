@@ -75,5 +75,4 @@ class Mopta08(Benchmark):
         value = output[0]
         constraints = output[1:]
         # see https://arxiv.org/pdf/2103.00349.pdf E.7
-        return torch.tensor(value + 10 * torch.sum(torch.clip(constraints, min=0, max=None)),
-                            dtype=settings.DTYPE).unsqueeze(-1)
+        return (value + 10 * torch.sum(torch.clip(constraints, min=0, max=None))).unsqueeze(-1)
