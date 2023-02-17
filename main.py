@@ -2,32 +2,10 @@ import argparse
 
 import torch
 
-from benchsuite import LassoDNA, LassoHard, LassoHigh, LassoMedium, LassoSimple, SVM, settings
-from benchsuite.lunarlander import LunarLanderBenchmark
-from benchsuite.mopta08 import Mopta08
-from benchsuite.mujoco import MujocoAnt, MujocoHalfCheetah, MujocoHopper, MujocoHumanoid, MujocoSwimmer, MujocoWalker
-from benchsuite.robotpushing import RobotPushingBenchmark
+from benchsuite import settings
+from benchsuite.benchmarks import benchmark_options
 
 if __name__ == '__main__':
-
-    benchmark_options = dict(
-        lasso_dna=LassoDNA,
-        lasso_simple=LassoSimple,
-        lasso_medium=LassoMedium,
-        lasso_hard=LassoHard,
-        lasso_high=LassoHigh,
-        svm=SVM,
-        mopta08=Mopta08,
-        lunarlander=LunarLanderBenchmark,
-        robotpushing=RobotPushingBenchmark,
-        swimmer=MujocoSwimmer,
-        humanoid=MujocoHumanoid,
-        ant=MujocoAnt,
-        hopper=MujocoHopper,
-        walker=MujocoWalker,
-        halfcheetah=MujocoHalfCheetah,
-    )
-
     parser = argparse.ArgumentParser(
         prog='BenchSuite',
         description='Provides some benchmarks',
