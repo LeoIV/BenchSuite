@@ -17,3 +17,9 @@ export MUJOCO_PY_MUJOCO_PATH=${PWD}/data/mujoco210
 ```bash
 poetry install
 ```
+
+# Usage
+
+```bash
+poetry run python3 main.py --name swimmer -x 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+```
