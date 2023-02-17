@@ -20,7 +20,7 @@ class MujocoBenchmark(Benchmark):
     ):
         super().__init__(dim=dim, lb=lb, ub=ub)
         print("Mujoco benchmark called")
-        self.benchmark = benchmark
+        self.benchmark = benchmark.make_object()
 
     def __call__(
         self,
@@ -41,7 +41,7 @@ class MujocoSwimmer(MujocoBenchmark):
             dim=16,
             ub=torch.ones(16, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1 * torch.ones(16, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["swimmer"].make_object()
+            benchmark=func_factories["swimmer"]
         )
 
 
@@ -53,7 +53,7 @@ class MujocoHumanoid(MujocoBenchmark):
             dim=6392,
             ub=torch.ones(6392, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1 * torch.ones(6392, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["humanoid"].make_object()
+            benchmark=func_factories["humanoid"]
         )
 
 
@@ -65,7 +65,7 @@ class MujocoAnt(MujocoBenchmark):
             dim=888,
             ub=torch.ones(888, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1 * torch.ones(888, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["ant"].make_object()
+            benchmark=func_factories["ant"]
         )
 
 
@@ -77,7 +77,7 @@ class MujocoHopper(MujocoBenchmark):
             dim=33,
             ub=1.4 * torch.ones(33, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1.4 * torch.ones(33, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["hopper"].make_object()
+            benchmark=func_factories["hopper"]
         )
 
 
@@ -89,7 +89,7 @@ class MujocoWalker(MujocoBenchmark):
             dim=102,
             ub=0.9 * torch.ones(102, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1.8 * torch.ones(102, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["walker_2d"].make_object()
+            benchmark=func_factories["walker_2d"]
         )
 
 
@@ -101,5 +101,5 @@ class MujocoHalfCheetah(MujocoBenchmark):
             dim=102,
             ub=torch.ones(102, dtype=settings.DTYPE, device=settings.DEVICE),
             lb=-1.0 * torch.ones(102, dtype=settings.DTYPE, device=settings.DEVICE),
-            benchmark=func_factories["half_cheetah"].make_object()
+            benchmark=func_factories["half_cheetah"]
         )
