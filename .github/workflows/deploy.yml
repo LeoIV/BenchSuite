@@ -15,7 +15,7 @@ jobs:
           python-version: '3.8'
       - name: Install with Poetry
         run: |
-          export LD_LIBRARY_PATH=$(PWD)/data/mujoco210/bin:/usr/lib/nvidia
+          export LD_LIBRARY_PATH=${PWD}/data/mujoco210/bin:/usr/lib/nvidia
           export MUJOCO_PY_MUJOCO_PATH=${PWD}/data/mujoco210
           echo $LD_LIBRARY_PATH
           echo $MUJOCO_PY_MUJOCO_PATH
