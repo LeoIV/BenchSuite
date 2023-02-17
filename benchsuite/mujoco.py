@@ -19,12 +19,14 @@ class MujocoBenchmark(Benchmark):
         benchmark: Any
     ):
         super().__init__(dim=dim, lb=lb, ub=ub)
+        print("Mujoco benchmark called")
         self.benchmark = benchmark
 
     def __call__(
         self,
         x: torch.Tensor
     ) -> torch.Tensor:
+        print("Mujoco benchmark called")
         if x.ndim == 1:
             x = x.unsqueeze(0)
         y = self.benchmark(x)[0]
