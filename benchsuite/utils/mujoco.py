@@ -5,21 +5,32 @@
 #
 
 import os
+import warnings
 from typing import Tuple, Optional, ClassVar, Dict, Generic, Type, TypeVar
 
-import gym
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    import gym
+
 import numpy as np
 
 T = TypeVar('T')
 
 
 class ObjectFactory(Generic[T]):
-    def __init__(self, clz: Type[T], args: Optional[Tuple] = None, kwargs: Optional[Dict] = None):
+    def __init__(
+        self,
+        clz: Type[T],
+        args: Optional[Tuple] = None,
+        kwargs: Optional[Dict] = None
+        ):
         self._clz = clz
         self._args = args
         self._kwargs = kwargs
 
-    def make_object(self) -> T:
+    def make_object(
+        self
+        ) -> T:
         if self._args is not None and self._kwargs is not None:
             return self._clz(*self._args, **self._kwargs)
         elif self._args is not None:
@@ -30,15 +41,21 @@ class ObjectFactory(Generic[T]):
             return self._clz()
 
     @property
-    def clz(self) -> Type:
+    def clz(
+        self
+        ) -> Type:
         return self._clz
 
     @property
-    def args(self) -> Optional[Tuple]:
+    def args(
+        self
+        ) -> Optional[Tuple]:
         return self._args
 
     @property
-    def kwargs(self) -> Optional[Dict]:
+    def kwargs(
+        self
+        ) -> Optional[Dict]:
         return self._kwargs
 
 
@@ -51,15 +68,22 @@ class MujucoPolicyFunc:
     HUMANOID_ENV: ClassVar[Tuple[str, float, float, int]] = ('Humanoid-v2', -1.0, 1.0, 5)
 
     ENV_CP = {
-        ANT_ENV[0]: 10.0,
-        SWIMMER_ENV[0]: 30.0,
+        ANT_ENV[0]         : 10.0,
+        SWIMMER_ENV[0]     : 30.0,
         HALF_CHEETAH_ENV[0]: 10.0,
-        HOPPER_ENV[0]: 100.0,
-        WALKER_2D_ENV[0]: 50.0,
-        HUMANOID_ENV[0]: 20.0
+        HOPPER_ENV[0]      : 100.0,
+        WALKER_2D_ENV[0]   : 50.0,
+        HUMANOID_ENV[0]    : 20.0
     }
 
-    def __init__(self, policy_file: str, env: str, lb: float, ub: float, num_rollouts):
+    def __init__(
+        self,
+        policy_file: str,
+        env: str,
+        lb: float,
+        ub: float,
+        num_rollouts
+        ):
         lin_policy = np.load(policy_file, allow_pickle=True)
         lin_policy = lin_policy['arr_0']
         self._policy = lin_policy[0]
@@ -74,22 +98,33 @@ class MujucoPolicyFunc:
         self._render = False
 
     @property
-    def lb(self) -> np.ndarray:
+    def lb(
+        self
+        ) -> np.ndarray:
         return self._lb
 
     @property
-    def ub(self) -> np.ndarray:
+    def ub(
+        self
+        ) -> np.ndarray:
         return self._ub
 
     @property
-    def dims(self) -> int:
+    def dims(
+        self
+        ) -> int:
         return self._dims
 
     @property
-    def is_minimizing(self) -> bool:
+    def is_minimizing(
+        self
+        ) -> bool:
         return False
 
-    def __call__(self, x: np.ndarray) -> Tuple[np.ndarray, Optional[np.ndarray]]:
+    def __call__(
+        self,
+        x: np.ndarray
+        ) -> Tuple[np.ndarray, Optional[np.ndarray]]:
         fx = np.zeros(len(x))
         for i, actions in enumerate(x):
             m = actions.reshape(self._policy.shape)
@@ -114,27 +149,41 @@ class MujucoPolicyFunc:
             fx[i] = np.mean(rewards)
         return fx, None
 
-    def __str__(self):
+    def __str__(
+        self
+        ):
         return f"Mujuco_{self._env_name}[{self.dims}]"
 
 
 func_dir = os.path.dirname(os.path.abspath(__file__))
 func_factories = {
-    "ant": ObjectFactory(MujucoPolicyFunc,
-                         (f"{func_dir}/mujuco_policies/Ant-v1/lin_policy_plus.npz", *MujucoPolicyFunc.ANT_ENV)),
-    "half_cheetah": ObjectFactory(MujucoPolicyFunc,
-                                  (f"{func_dir}/mujuco_policies/HalfCheetah-v1/lin_policy_plus.npz",
-                                   *MujucoPolicyFunc.HALF_CHEETAH_ENV)),
-    "hopper": ObjectFactory(MujucoPolicyFunc,
-                            (f"{func_dir}/mujuco_policies/Hopper-v1/lin_policy_plus.npz",
-                             *MujucoPolicyFunc.HOPPER_ENV)),
-    "humanoid": ObjectFactory(MujucoPolicyFunc,
-                              (f"{func_dir}/mujuco_policies/Humanoid-v1/lin_policy_plus.npz",
-                               *MujucoPolicyFunc.HUMANOID_ENV)),
-    "swimmer": ObjectFactory(MujucoPolicyFunc,
-                             (f"{func_dir}/mujuco_policies/Swimmer-v1/lin_policy_plus.npz",
-                              *MujucoPolicyFunc.SWIMMER_ENV)),
-    "walker_2d": ObjectFactory(MujucoPolicyFunc,
-                               (f"{func_dir}/mujuco_policies/Walker2d-v1/lin_policy_plus.npz",
-                                *MujucoPolicyFunc.WALKER_2D_ENV)),
+    "ant"         : ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/Ant-v1/lin_policy_plus.npz", *MujucoPolicyFunc.ANT_ENV)
+        ),
+    "half_cheetah": ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/HalfCheetah-v1/lin_policy_plus.npz",
+         *MujucoPolicyFunc.HALF_CHEETAH_ENV)
+        ),
+    "hopper"      : ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/Hopper-v1/lin_policy_plus.npz",
+         *MujucoPolicyFunc.HOPPER_ENV)
+        ),
+    "humanoid"    : ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/Humanoid-v1/lin_policy_plus.npz",
+         *MujucoPolicyFunc.HUMANOID_ENV)
+        ),
+    "swimmer"     : ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/Swimmer-v1/lin_policy_plus.npz",
+         *MujucoPolicyFunc.SWIMMER_ENV)
+        ),
+    "walker_2d"   : ObjectFactory(
+        MujucoPolicyFunc,
+        (f"{func_dir}/mujuco_policies/Walker2d-v1/lin_policy_plus.npz",
+         *MujucoPolicyFunc.WALKER_2D_ENV)
+        ),
 }

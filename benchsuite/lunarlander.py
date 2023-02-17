@@ -26,10 +26,16 @@ Created by Oleg Klimov. Licensed on the same terms as the rest of OpenAI Gym.
 """
 
 import math
+import warnings
 from threading import Lock
 
 import Box2D
-import gym
+
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    import gym
+    from gym import spaces
+    from gym.utils import seeding, EzPickle
 import numpy as np
 import torch
 from Box2D.b2 import (
@@ -40,8 +46,6 @@ from Box2D.b2 import (
     revoluteJointDef,
     contactListener,
 )
-from gym import spaces
-from gym.utils import seeding, EzPickle
 
 from benchsuite import settings
 from benchsuite.benchmark import Benchmark
@@ -422,7 +426,9 @@ class LunarLander(gym.Env, EzPickle):
         self,
         mode = "human"
     ):
-        from gym.envs.classic_control import rendering
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            from gym.envs.classic_control import rendering
 
         if self.viewer is None:
             self.viewer = rendering.Viewer(VIEWPORT_W, VIEWPORT_H)
@@ -486,7 +492,6 @@ class LunarLander(gym.Env, EzPickle):
             self.viewer = None
 
 
-
 class LunarLanderBenchmark(Benchmark):
     def __init__(
         self,
@@ -542,7 +547,7 @@ class LunarLanderBenchmark(Benchmark):
         self,
         w: np.ndarray,
         max_steps: int = 2000
-        ):
+    ):
         total_reward = 0
         steps = 0
         with self.lock:
@@ -560,7 +565,7 @@ class LunarLanderBenchmark(Benchmark):
     def __call__(
         self,
         x
-        ):
+    ):
         x = np.array(x)
         if x.ndim == 0:
             x = np.expand_dims(x, 0)

@@ -1,5 +1,4 @@
-import os
-from pathlib import Path
+import warnings
 from typing import Any
 
 import torch
@@ -19,17 +18,19 @@ class MujocoBenchmark(Benchmark):
         benchmark: Any
     ):
         super().__init__(dim=dim, lb=lb, ub=ub)
-        print("Mujoco benchmark called")
-        self.benchmark = benchmark.make_object()
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            self.benchmark = benchmark.make_object()
 
     def __call__(
         self,
         x: torch.Tensor
     ) -> torch.Tensor:
-        print("Mujoco benchmark called")
         if x.ndim == 1:
             x = x.unsqueeze(0)
-        y = self.benchmark(x)[0]
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            y = self.benchmark(x)[0]
         return -torch.tensor(y)
 
 
