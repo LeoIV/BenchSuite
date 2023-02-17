@@ -15,7 +15,7 @@ jobs:
           python-version: '3.8'
       - name: Install with Poetry
         run: |
-          export $(grep -v '^#' .envrc | xargs)
+          export $(grep -v '^#' .env | xargs)
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
         shell: bash
