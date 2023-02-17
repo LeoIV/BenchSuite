@@ -15,10 +15,12 @@ jobs:
           python-version: '3.8'
       - name: Install with Poetry
         run: |
+          direnv hook bash
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
         shell: bash
       - name: Test with pytest
         run: |
+          direnv hook bash
           poetry run pytest
         shell: bash
