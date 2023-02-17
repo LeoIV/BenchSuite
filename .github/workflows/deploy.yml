@@ -16,6 +16,8 @@ jobs:
       - name: Install with Poetry
         run: |
           export $(grep -v '^#' .env | xargs)
+          echo $LD_LIBRARY_PATH
+          echo $MUJOCO_PY_MUJOCO_PATH
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
         shell: bash
