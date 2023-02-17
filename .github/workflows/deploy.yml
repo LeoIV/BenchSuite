@@ -14,17 +14,18 @@ jobs:
         with:
           python-version: '3.8'
       - name: Install mujoco-py dependencies
-        run: sudo apt install libosmesa6-dev libgl1-mesa-glx libglfw3
+        run: |
+          sudo apt install -y libosmesa6-dev libgl1-mesa-glx libglfw3
+          eval "$(direnv hook bash)"
+        shell: bash
       - name: Install with Poetry
         run: |
-          export LD_LIBRARY_PATH=${PWD}/data/mujoco210/bin:/usr/lib/nvidia
-          export MUJOCO_PY_MUJOCO_PATH=${PWD}/data/mujoco210
-          echo $LD_LIBRARY_PATH
-          echo $MUJOCO_PY_MUJOCO_PATH
+          sh .envrc
           curl -sSL https://install.python-poetry.org | python3 -
           poetry install
         shell: bash
       - name: Test with pytest
         run: |
+          sh .envrc
           poetry run pytest
         shell: bash

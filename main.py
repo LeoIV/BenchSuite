@@ -1,4 +1,10 @@
 import argparse
+import os
+from pathlib import Path
+
+dir = Path(__file__).parent.absolute()  # noqa
+os.environ["LD_LIBRARY_PATH"] = f"{dir}/data/mujoco210/bin:/usr/lib/nvidia"  # noqa
+os.environ["MUJOCO_PY_MUJOCO_PATH"] = f"{dir}/data/mujoco210"  # noqa
 
 import torch
 
