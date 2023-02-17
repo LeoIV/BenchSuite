@@ -15,6 +15,7 @@ jobs:
           python-version: '3.8'
       - name: Install with Poetry
         run: |
+          cat .env | xargs -L 1 -I {} sh -c 'export {}'
           export $(grep -v '^#' .env | xargs)
           echo $LD_LIBRARY_PATH
           echo $MUJOCO_PY_MUJOCO_PATH
