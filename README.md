@@ -23,3 +23,10 @@ poetry install
 ```bash
 poetry run python3 main.py --name swimmer -x 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
 ```
+
+# Troubleshooting
+
+You might have to install swig, glew, and/or patchelf:
+```bash
+sudo apt install swig libglew-dev patchelf
+```
