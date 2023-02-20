@@ -43,4 +43,4 @@ class MaxSat60(Benchmark):
         for i, soft in enumerate(self.clauses):
             if np.any(np.isin(assignments, soft)):
                 weights_sum += self.weights[i]
-        return torch.tensor(weights_sum, device=settings.DEVICE, dtype=settings.DTYPE).unsqueeze(-1)
+        return -torch.tensor(weights_sum, device=settings.DEVICE, dtype=settings.DTYPE).unsqueeze(-1)

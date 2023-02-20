@@ -13,6 +13,7 @@ from benchsuite import LassoDNA, \
     MujocoHopper, \
     MujocoWalker, \
     MujocoHalfCheetah
+from benchsuite.labs import Labs
 from benchsuite.maxsat import MaxSat60
 
 benchmark_options = dict(
@@ -32,4 +33,5 @@ benchmark_options = dict(
     walker=MujocoWalker,
     halfcheetah=MujocoHalfCheetah,
     maxsat60=MaxSat60,
+    labs=Labs,
 )
