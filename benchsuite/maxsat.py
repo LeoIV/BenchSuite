@@ -17,7 +17,7 @@ class MaxSat60(Benchmark):
                          ub=torch.ones(dim, device=settings.DEVICE, dtype=settings.DTYPE), type=BenchmarkType.BINARY)
         wcnf = WCNF(from_file=os.path.join(Path(__file__).parent.parent, "data", "maxsat", "frb-frb10-6-4.wcnf"))
         weights = np.array(wcnf.wght)
-        self.weights = (weights - weights.min()) / (weights.max() - weights.min())
+        self.weights = (weights - weights.mean()) / weights.std()
         self.clauses = [np.array(c) for c in wcnf.soft]
         self.dim = wcnf.nv
         assert self.dim == 60, "Something is really off here"
