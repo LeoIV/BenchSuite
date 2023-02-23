@@ -15,6 +15,7 @@ from benchsuite import LassoDNA, \
     MujocoHalfCheetah
 from benchsuite.labs import Labs
 from benchsuite.maxsat import MaxSat60
+from benchsuite.contamination import Contamination
 
 benchmark_options = dict(
     lasso_dna=LassoDNA,
@@ -34,4 +35,5 @@ benchmark_options = dict(
     halfcheetah=MujocoHalfCheetah,
     maxsat60=MaxSat60,
     labs=Labs,
+    contamination=Contamination,
 )
