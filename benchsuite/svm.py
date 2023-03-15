@@ -1,6 +1,5 @@
 import gzip
 import os
-import tarfile
 import time
 from pathlib import Path
 
@@ -17,7 +16,6 @@ class SVM(Benchmark):
     """
     The interior benchmark is just the benchmark in the lower-dimensional effective embedding.
     """
-    NOISE = True
 
     def __init__(
             self,
@@ -30,7 +28,7 @@ class SVM(Benchmark):
         )
         self.X, self.y = self._load_data()
         np.random.seed(388)
-        idxs = np.random.choice(np.arange(len(self.X)), min(10000, len(self.X)), replace=False)
+        idxs = np.random.choice(np.arange(len(self.X)), min(500, len(self.X)), replace=False)
         half = len(idxs) // 2
         self._X_train = self.X[idxs[:half]]
         self._X_test = self.X[idxs[half:]]
@@ -63,7 +61,7 @@ class SVM(Benchmark):
         epsilon = 0.01 * (100 ** y[385])
         length_scales = np.exp(4 * y[:385] - 2)
 
-        svr = SVR(gamma=gamma, epsilon=epsilon, C=C, cache_size=10000, tol=0.001)
+        svr = SVR(gamma=gamma, epsilon=epsilon, C=C, cache_size=1500, tol=0.001)
         svr.fit(self._X_train / length_scales, self._y_train)
         pred = svr.predict(self._X_test / length_scales)
         error = np.sqrt(np.mean(np.square(pred - self._y_test)))
