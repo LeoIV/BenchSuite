@@ -797,6 +797,7 @@ files = [
     {file = "debugpy-1.6.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9b5d1b13d7c7bf5d7cf700e33c0b8ddb7baf030fcf502f76fc061ddd9405d16c"},
     {file = "debugpy-1.6.6-cp38-cp38-win32.whl", hash = "sha256:70ab53918fd907a3ade01909b3ed783287ede362c80c75f41e79596d5ccacd32"},
     {file = "debugpy-1.6.6-cp38-cp38-win_amd64.whl", hash = "sha256:c05349890804d846eca32ce0623ab66c06f8800db881af7a876dc073ac1c2225"},
+    {file = "debugpy-1.6.6-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:11a0f3a106f69901e4a9a5683ce943a7a5605696024134b522aa1bfda25b5fec"},
     {file = "debugpy-1.6.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a771739902b1ae22a120dbbb6bd91b2cae6696c0e318b5007c5348519a4211c6"},
     {file = "debugpy-1.6.6-cp39-cp39-win32.whl", hash = "sha256:549ae0cb2d34fc09d1675f9b01942499751d174381b6082279cf19cdb3c47cbe"},
     {file = "debugpy-1.6.6-cp39-cp39-win_amd64.whl", hash = "sha256:de4a045fbf388e120bb6ec66501458d3134f4729faed26ff95de52a754abddb1"},
@@ -1198,14 +1199,14 @@ testing = ["flake8 (<5)", "flufl.flake8", "importlib-resources (>=1.3)", "packag
 
 [[package]]
 name = "importlib-resources"
-version = "5.10.2"
+version = "5.12.0"
 description = "Read resources from Python packages"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "importlib_resources-5.10.2-py3-none-any.whl", hash = "sha256:7d543798b0beca10b6a01ac7cafda9f822c54db9e8376a6bf57e0cbd74d486b6"},
-    {file = "importlib_resources-5.10.2.tar.gz", hash = "sha256:e4a96c8cc0339647ff9a5e0550d9f276fc5a01ffa276012b58ec108cfd7b8484"},
+    {file = "importlib_resources-5.12.0-py3-none-any.whl", hash = "sha256:7b1deeebbf351c7578e09bf2f63fa2ce8b5ffec296e0d349139d43cca061a81a"},
+    {file = "importlib_resources-5.12.0.tar.gz", hash = "sha256:4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6"},
 ]
 
 [package.dependencies]
@@ -2040,14 +2041,14 @@ six = "*"
 
 [[package]]
 name = "nbclassic"
-version = "0.5.1"
+version = "0.5.2"
 description = "Jupyter Notebook as a Jupyter Server extension."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "nbclassic-0.5.1-py3-none-any.whl", hash = "sha256:32c235e1f22f4048f3b877d354c198202898797cf9c2085856827598cead001b"},
-    {file = "nbclassic-0.5.1.tar.gz", hash = "sha256:8e8ffce7582bb7a4baf11fa86a3d88b184e8e7df78eed4ead69f15aa4fc0e323"},
+    {file = "nbclassic-0.5.2-py3-none-any.whl", hash = "sha256:6403a996562dadefa7fee9c49e17b663b5fd508241de5df655b90011cf3342d9"},
+    {file = "nbclassic-0.5.2.tar.gz", hash = "sha256:40f11bbcc59e8956c3d5ef132dec8e5a853e893ecf831e791d54da0d8a50d79d"},
 ]
 
 [package.dependencies]
@@ -2057,7 +2058,7 @@ ipython-genutils = "*"
 jinja2 = "*"
 jupyter-client = ">=6.1.1"
 jupyter-core = ">=4.6.1"
-jupyter-server = ">=1.17.0"
+jupyter-server = ">=1.8"
 nbconvert = ">=5"
 nbformat = "*"
 nest-asyncio = ">=1.5"
@@ -3091,6 +3092,63 @@ files = [
 ]
 
 [[package]]
+name = "python-sat"
+version = "0.1.7.dev26"
+description = "A Python library for prototyping with SAT oracles"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "python-sat-0.1.7.dev26.tar.gz", hash = "sha256:49679925000a9d6a7718848efa9152db7838026a2b4946f09b1996e587811e40"},
+    {file = "python_sat-0.1.7.dev26-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:847b8bea98f755e9888c126822749b64c5a938696e72d139e76390b97f9c92f1"},
+    {file = "python_sat-0.1.7.dev26-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:2cf3f4cd3b2ab83373c5e0dcbb8b2184f778e531baf7bccb0e83ac548a3088e3"},
+    {file = "python_sat-0.1.7.dev26-cp27-cp27mu-manylinux1_i686.whl", hash = "sha256:9222cfd02e7fd16561cd154ecb48b1adc716af0bbd6eb13537420bd619796bf2"},
+    {file = "python_sat-0.1.7.dev26-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:094ee5bbb455e1e23d6ca547363d061fe1aacb10c2edd8aa802574e7e3089fd0"},
+    {file = "python_sat-0.1.7.dev26-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:3679451ebe6507ba634823ba8faf7042c4add55d023df6d06e294761f083704e"},
+    {file = "python_sat-0.1.7.dev26-cp310-cp310-macosx_13_0_x86_64.whl", hash = "sha256:791afc37a358f7cefb7239f36b3175bf8177092f4f9f96f50307f555482d625c"},
+    {file = "python_sat-0.1.7.dev26-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4d5af63ce313d08bf6517d52c27bef8993d850d3d02595f3700d25f8a4829995"},
+    {file = "python_sat-0.1.7.dev26-cp310-cp310-win_amd64.whl", hash = "sha256:f737ae95c1f61c594c20f220de2c31ccc549cc284e5ee044d83ffb9e83659554"},
+    {file = "python_sat-0.1.7.dev26-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:117c1e04b591906f0637c432b84d4e2c7c65f92958ef224c882b19a44de7e684"},
+    {file = "python_sat-0.1.7.dev26-cp311-cp311-macosx_13_0_x86_64.whl", hash = "sha256:3cf7b0e77df411ec225d6d792b1b5bab25ec0bfe1e03d8d5c9a4275782fc3092"},
+    {file = "python_sat-0.1.7.dev26-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:191f6e7c721ee22c21a17f164240cb8cf70f6722ed926d5511b5f15b0ea96297"},
+    {file = "python_sat-0.1.7.dev26-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:c6a0d796a2ed2b5b77ed4e353d1c442470d8b739aab4dfc54f5c537c7394fdba"},
+    {file = "python_sat-0.1.7.dev26-cp35-cp35m-manylinux2010_x86_64.whl", hash = "sha256:5f86acd6ce15435004745b98248d8058b8ea16f6a754ec0125433cb291779bb7"},
+    {file = "python_sat-0.1.7.dev26-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:9ca7cc0446afe9f1f5c760b48105d374e0bad04ae8d9e359366284959a7b7f88"},
+    {file = "python_sat-0.1.7.dev26-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:2ae1ef187598a3e491173e47c76e71a7bf6ca42c38a6136c664bdc604bcbb5ab"},
+    {file = "python_sat-0.1.7.dev26-cp36-cp36m-manylinux2010_x86_64.whl", hash = "sha256:a70e0e31da5aad200ca67eae92a01aba2aa496e7c5a06bab31352f1d0d88cc7b"},
+    {file = "python_sat-0.1.7.dev26-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:652712fab3de52fd0aa7df2c194f4a033626b549d3bcdaab3de34e02a23a67a7"},
+    {file = "python_sat-0.1.7.dev26-cp36-cp36m-win_amd64.whl", hash = "sha256:35b32357b4caf069e5f7504fb826b6bfa5108b67f1263ed1fef4349f29be6dde"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-macosx_13_0_x86_64.whl", hash = "sha256:651776d0aca0279ef64df474db3e352c11c8ddb78eb8022591cfa7762ca9c7cf"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:ed279f51812deb945da866d52962d9754baf9311d3962c315246d831e968e189"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:904bf94a5de0ab5b64bfc9cb9588154f2078f625b9d9ddc7368fbfd309c9a3aa"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:a53bfedb79f22694183dfc9fa4e0ac5c7950142e0f98c723a194770146d58193"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e48e904544e0eadc0316eb296557f9928c23f7f1307542c69751e96f4c9f78a8"},
+    {file = "python_sat-0.1.7.dev26-cp37-cp37m-win_amd64.whl", hash = "sha256:17e93da1cca697d07d4f32765ac67cbf45b0d6dc79067d84a68c8cf79fb590e0"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:fb2f094f965a081f4d06f1fa0286df8418c7cf287f0a89c9b04436f31a5f0d1e"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-macosx_13_0_x86_64.whl", hash = "sha256:dfde842c27110cf8b638e0a0c1002d6d82ed214f3716fa2c82b080e56a44c05f"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-manylinux1_i686.whl", hash = "sha256:f71f246d8f8fa9ddd9dee14f12efb93a12ad09b9532d9699fd039b7dbf8b37a5"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:be9294503ba99cec7ce600f67bc2fcd7cd3fd34a7688f5136693eb217c9e3557"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:06e94ebd770e7cb74dba2cf887e7e83af74565a3f67b872aa215677017622398"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:55b2feb60ba2a1dbe7eea4efde6cc4b4d0c9663b322a9e66946ff772c1bda4c7"},
+    {file = "python_sat-0.1.7.dev26-cp38-cp38-win_amd64.whl", hash = "sha256:6a5c2d3ac4daad8a44cd4f4b020e56ad13f92c2a324a8f3e0d411c82b1d184d7"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-macosx_13_0_arm64.whl", hash = "sha256:685070d6df86af05515678a2322d6a817b7fa29d64b39e8c55b5e8f6093a5c9f"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-macosx_13_0_x86_64.whl", hash = "sha256:ab140c0a1dc686473b662ad26f13510a946a3703b79f6e7e91a9efc37a0d653e"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-manylinux1_i686.whl", hash = "sha256:cc3bf1b9a44f742cff65f1dbae82b9c8ffcc59ab305669d3ae2474719ffeeaf6"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:fcebaffc42a26eaccca8235182d7c8d9d2e8286be52ec8392c987f5543872445"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:342ebc5da891f4f935e3d6529732aa70677ac8fc077192ca129ec32667916870"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:97eb52407fddce770fda3920173217d307cfc966663e07203f0836e91fb54ed4"},
+    {file = "python_sat-0.1.7.dev26-cp39-cp39-win_amd64.whl", hash = "sha256:fbfb183423b5f5e2fcb03d638f127abdef3038cae72c1df5656455b11ad8349e"},
+    {file = "python_sat-0.1.7.dev26-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a6093674118900f7dc3e9973c94e660db31efc0dcb2cd802f05ec535dddbc66f"},
+]
+
+[package.dependencies]
+six = "*"
+
+[package.extras]
+aiger = ["py-aiger-cnf (>=2.0.0)"]
+pblib = ["pypblib (>=0.0.3)"]
+
+[[package]]
 name = "pytz"
 version = "2022.7.1"
 description = "World timezone definitions, modern and historical"
@@ -3914,14 +3972,14 @@ viz = ["matplotlib", "nc-time-axis", "seaborn"]
 
 [[package]]
 name = "zipp"
-version = "3.13.0"
+version = "3.14.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "zipp-3.13.0-py3-none-any.whl", hash = "sha256:e8b2a36ea17df80ffe9e2c4fda3f693c3dad6df1697d3cd3af232db680950b0b"},
-    {file = "zipp-3.13.0.tar.gz", hash = "sha256:23f70e964bc11a34cef175bc90ba2914e1e4545ea1e3e2f67c079671883f9cb6"},
+    {file = "zipp-3.14.0-py3-none-any.whl", hash = "sha256:188834565033387710d046e3fe96acfc9b5e86cbca7f39ff69cf21a4128198b7"},
+    {file = "zipp-3.14.0.tar.gz", hash = "sha256:9e5421e176ef5ab4c0ad896624e87a7b2f07aca746c9b2aa305952800cb8eecb"},
 ]
 
 [package.extras]
@@ -3931,4 +3989,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.8"
-content-hash = "a5f12b4b9eabab7976a861ffa276755b7c0d25c5b5ea2d9a784fe02b8acde4f8"
+content-hash = "547ad6026b2c1d5b98e768579b320c44dd2506851227f588fbb41d5e47fe0ee5"

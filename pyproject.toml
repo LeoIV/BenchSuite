@@ -17,9 +17,11 @@ box2d = "^2.3.10"
 box2d-py = "^2.3.8"
 mujoco-py = { git = "https://github.com/LeoIV/mujoco-py.git" }
 mujoco = "2.2.2"
+python-sat = "^0.1.7.dev26"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
+
 
 [build-system]
 requires = ["poetry-core"]
