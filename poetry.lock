@@ -850,47 +850,6 @@ pyro = ["pyro-ppl (>=1.8)"]
 test = ["flake8 (==4.0.1)", "flake8-print (==4.0.0)", "nbval", "pytest"]
 
 [[package]]
-name = "gym"
-version = "0.24.1"
-description = "Gym: A universal API for reinforcement learning environments"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "gym-0.24.1.tar.gz", hash = "sha256:9b23bbaa96ba0771a16a9f80062edb79b6f176ffdc84f39ea4645b03a8b72291"},
-]
-
-[package.dependencies]
-cloudpickle = ">=1.2.0"
-gym_notices = ">=0.0.4"
-importlib_metadata = {version = ">=4.8.0", markers = "python_version < \"3.10\""}
-numpy = ">=1.18.0"
-
-[package.extras]
-accept-rom-license = ["autorom[accept-rom-license] (>=0.4.2,<0.5.0)"]
-all = ["ale-py (>=0.7.5,<0.8.0)", "box2d-py (==2.3.5)", "imageio (>=2.14.1)", "lz4 (>=3.1.0)", "matplotlib (>=3.0)", "mock", "mujoco (==2.2.0)", "mujoco_py (>=2.1,<2.2)", "opencv-python (>=3.0)", "pygame (==2.1.0)", "pytest"]
-atari = ["ale-py (>=0.7.5,<0.8.0)"]
-box2d = ["box2d-py (==2.3.5)", "pygame (==2.1.0)"]
-classic-control = ["pygame (==2.1.0)"]
-mujoco = ["imageio (>=2.14.1)", "mujoco (==2.2.0)"]
-mujoco-py = ["mujoco_py (>=2.1,<2.2)"]
-other = ["lz4 (>=3.1.0)", "matplotlib (>=3.0)", "opencv-python (>=3.0)"]
-testing = ["box2d-py (==2.3.5)", "imageio (>=2.14.1)", "lz4 (>=3.1.0)", "matplotlib (>=3.0)", "mock", "mujoco (==2.2.0)", "mujoco_py (>=2.1,<2.2)", "opencv-python (>=3.0)", "pygame (==2.1.0)", "pytest"]
-toy-text = ["pygame (==2.1.0)"]
-
-[[package]]
-name = "gym-notices"
-version = "0.0.8"
-description = "Notices for gym"
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "gym-notices-0.0.8.tar.gz", hash = "sha256:ad25e200487cafa369728625fe064e88ada1346618526102659b4640f2b4b911"},
-    {file = "gym_notices-0.0.8-py3-none-any.whl", hash = "sha256:e5f82e00823a166747b4c2a07de63b6560b1acb880638547e0cabf825a01e463"},
-]
-
-[[package]]
 name = "hyperopt"
 version = "0.2.7"
 description = "Distributed Asynchronous Hyperparameter Optimization"
@@ -3016,4 +2975,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.8"
-content-hash = "8abc75abc6187eb930e5f4c817656176a80999b29e3854f86f76513901f15291"
+content-hash = "b85bf155f93d7ba094e21aa1d11e5e60f6de91be1e2f588462ee9af50a270212"
