@@ -6,7 +6,6 @@ from benchsuite import LassoDNA, \
     SVM, \
     Mopta08, \
     LunarLanderBenchmark, \
-    RobotPushingBenchmark, \
     MujocoSwimmer, \
     MujocoHumanoid, \
     MujocoAnt, \
@@ -26,7 +25,7 @@ benchmark_options = dict(
     svm=SVM,
     mopta08=Mopta08,
     lunarlander=LunarLanderBenchmark,
-    robotpushing=RobotPushingBenchmark,
+    #robotpushing=RobotPushingBenchmark,
     swimmer=MujocoSwimmer,
     humanoid=MujocoHumanoid,
     ant=MujocoAnt,

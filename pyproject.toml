@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "~3.8"
 LassoBench = { git = "https://github.com/ksehic/LassoBench.git#egg=LassoBench" }
-ebo = { git = "https://github.com/LeoIV/Ensemble-Bayesian-Optimization.git" }
+#ebo = { git = "https://github.com/LeoIV/Ensemble-Bayesian-Optimization.git" }
 numpy = "~1.21"
 torch = "^1.13"
 scikit-learn = "~1.2"
