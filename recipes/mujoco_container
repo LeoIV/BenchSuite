@@ -18,6 +18,10 @@ Stage: build
     apt-get install libosmesa6-dev libgl1-mesa-glx -y
 
 
+
+    cd /opt
+    git clone https://github.com/hvarfner/BenchSuite.git
+    
     cd /opt
     wget https://github.com/google-deepmind/mujoco/releases/download/2.1.0/mujoco210-linux-x86_64.tar.gz
     tar -xf mujoco210-linux-x86_64.tar.gz

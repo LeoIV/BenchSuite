@@ -1,32 +1,19 @@
-# Installation
+Added containerized high-dimensional benchmarks for mujoco (swimmer, hopper etc.), EBO (lunar lander, rover, robot pushing), other (SVM, MOPTA08) and LassoBench.
 
-Install from project root directory.
+To run:
+build the relevant container (from recipes/[mujoco, lasso, ebo, other]):
 
-* Install Poetry if not already done:
-```bash
-curl -sSL https://install.python-poetry.org | python3 -
+```
+sudo singularity build **mujuco_container.sif** recipes/mujoco
 ```
 
-* Export necessary environment variables. You only need to do this for the current shell session.
-```bash
-export LD_LIBRARY_PATH=${PWD}/data/mujoco210/bin:/usr/lib/nvidia
-export MUJOCO_PY_MUJOCO_PATH=${PWD}/data/mujoco210
+Call the relevant benchmark:
+
+
+./mujuco_container.sif --benchmark_name swimmer -x 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
 ```
 
-* Install
-```bash
-poetry install
-```
-
-# Usage
-
-```bash
-poetry run python3 main.py --name swimmer -x 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
-```
-
-# Troubleshooting
-
-You might have to install swig, glew, and/or patchelf:
-```bash
-sudo apt install swig libglew-dev patchelf
-```
+Benchmarks (benchmark_name, dim):
+Mujoco: Swimmer (swimmer, 16), Hopper (hopper, 33), Walker (walker, 102), Half-Cheetah (cheetah, 102), Ant (ant, 888), Humanoid (humanoid, 6392)
+EBO: Lunar lander (lunar, 12D), Robot pushing (robot, 14D), Rover (rover, 100D)
+LassoBench: Real-DNA (dna, 180D), Synthetic-High (high, 300D), Synthetic-Hard (hard, 1000D)
