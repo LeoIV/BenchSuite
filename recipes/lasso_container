@@ -1,0 +1,13 @@
+Bootstrap: docker
+From: python:3.10-slim
+Stage: build
+
+%post
+    apt update -y
+    apt install build-essential git wget -y    
+
+    git clone https://github.com/ksehic/LassoBench.git
+    cd LassoBench/ && pip install -e .
+
+%runscript
+    python main.py --name lasso_dna $*

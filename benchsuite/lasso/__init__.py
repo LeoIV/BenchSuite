@@ -1,0 +1,1 @@
+from benchsuite.lasso.lasso import LassoRegistry

@@ -1,0 +1,1 @@
+from benchsuite.benchmarks import BaseRegistry

@@ -1,0 +1,1 @@
+from benchsuite.ebo.registry import EBORegistry

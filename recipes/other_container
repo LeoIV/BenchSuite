@@ -1,0 +1,12 @@
+Bootstrap: docker
+From: python:3.10-slim
+Stage: build
+
+%post
+    apt update -y
+    apt install build-essential git wget -y    
+    pip install torch==2.1.0
+    pip install scikit-learn>=0.21
+
+%runscript
+    python main.py --name other $*

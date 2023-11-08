@@ -1,0 +1,1 @@
+from benchsuite.mujoco.mujoco import MujocoRegistry
