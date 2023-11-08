@@ -2,6 +2,7 @@ Bootstrap: docker
 From: python:3.10-slim
 Stage: build
 
+# os.environ["LIBSVMDATA_HOME"] = "/tmp/libsvmdata"
 %post
     apt update -y
     apt install build-essential git wget -y    

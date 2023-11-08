@@ -5,8 +5,6 @@ from benchsuite.benchmarks import get_benchmark
 from glob import glob
 
 dir = Path(__file__).parent.absolute()  # noqa
-os.environ["LD_LIBRARY_PATH"] = f"{dir}/data/mujoco210/bin:/usr/lib/nvidia"  # noqa
-os.environ["MUJOCO_PY_MUJOCO_PATH"] = f"{dir}/data/mujoco210"  # noqa
 
 import torch
 
@@ -43,7 +41,6 @@ if __name__ == '__main__':
     x = bench.lb + (bench.ub - bench.lb) * x
     
     # set LIBSVMDATA_HOME /tmp/libsvmdata
-    os.environ["LIBSVMDATA_HOME"] = "/tmp/libsvmdata"
 
     y = bench(x)
     print(y.detach().cpu().numpy().tolist()[0])
