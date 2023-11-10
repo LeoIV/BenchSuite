@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
     x = torch.tensor(args.x, dtype=settings.DTYPE, device=settings.DEVICE)
     # scale x to the correct range
-    x = bench.lb + (bench.ub - bench.lb) * x
+    #x = bench.lb + (bench.ub - bench.lb) * x
     
     # set LIBSVMDATA_HOME /tmp/libsvmdata
 
