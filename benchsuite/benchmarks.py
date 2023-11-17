@@ -9,6 +9,7 @@ from benchsuite import (
 )
 from benchsuite.contamination import Contamination
 from benchsuite.labs import Labs
+from benchsuite.lasso import LassoDNANoisy
 from benchsuite.maxsat import MaxSat60
 
 benchmark_options = dict(
