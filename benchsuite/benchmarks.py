@@ -13,6 +13,7 @@ from benchsuite.maxsat import MaxSat60
 
 benchmark_options = dict(
     lasso_dna=LassoDNA,
+    lasso_dna_noisy=LassoDNANoisy,
     lasso_simple=LassoSimple,
     lasso_medium=LassoMedium,
     lasso_hard=LassoHard,
