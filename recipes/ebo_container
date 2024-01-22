@@ -2,6 +2,11 @@ Bootstrap: docker
 From: python:3.10-slim
 Stage: build
 
+
+%environment
+    export BD_PATH=/opt/BenchSuite
+    export PYGAME_HIDE_SUPPORT_PROMPT=hide
+
 %post
     apt update -y
     apt install build-essential git wget -y    
@@ -11,6 +16,9 @@ Stage: build
     pip install box2d==2.3.2
     pip install box2d-py==2.3.8
     pip install pygame
+
+    cd /opt
+    git clone https://github.com/hvarfner/BenchSuite.git
     git clone https://github.com/LeoIV/Ensemble-Bayesian-Optimization.git
     cd Ensemble-Bayesian-Optimization && pip install -e .
 
@@ -20,4 +28,4 @@ Stage: build
 
 %runscript
 
-    python main.py --name ebo $*
+    python ${BD_PATH}/main.py --name ebo $*

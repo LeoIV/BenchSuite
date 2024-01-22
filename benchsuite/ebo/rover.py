@@ -200,8 +200,8 @@ def main():
     def l2cost(x, point):
         return 10 * np.linalg.norm(x - point, 1)
 
-    domain = create_large_domain(force_start=False,
-                                 force_goal=False,
+    domain = create_large_domain(force_start=True,
+                                 force_goal=True,
                                  start_miss_cost=l2cost,
                                  goal_miss_cost=l2cost)
     n_points = domain.traj.npoints

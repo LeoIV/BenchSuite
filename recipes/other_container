@@ -2,10 +2,17 @@ Bootstrap: docker
 From: python:3.10-slim
 Stage: build
 
-# os.environ["LIBSVMDATA_HOME"] = "/tmp/libsvmdata"
+
+%environment
+    export BD_PATH=/opt/BenchSuite
+    export LIBSVMDATA_HOME = /opt/libsvmdata
 %post
     apt update -y
     apt install build-essential git wget -y    
+
+    cd /opt
+    git clone https://github.com/hvarfner/BenchSuite.git
+
     pip install torch==2.1.0
     pip install scikit-learn>=0.21
 
