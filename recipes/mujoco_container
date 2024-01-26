@@ -17,7 +17,8 @@ Stage: build
     apt install swig libglew-dev patchelf -y
     apt-get install libosmesa6-dev libgl1-mesa-glx -y
 
-
+    mkdir /tmp/mujocopy-buildlock || true
+    chmod 777 /tmp/mujocopy-buildlock
 
     cd /opt
     git clone https://github.com/hvarfner/BenchSuite.git
